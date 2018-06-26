@@ -1,0 +1,29 @@
+{% macro display_collectionText(collection) %}
+    {% import _self as macro %}
+
+    {% for item in collection %}
+        {{ macro.display_item_collectionText(item) }}
+    {% endfor %}
+    {% if collection.vars.prototype is defined %}
+        <div id='prototype-contenuText'
+             data-prototype='{{ macro.display_item_collectionText(collection.vars.prototype)|e }}'>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro display_item_collectionText(item) %}
+    <div class="un-contenu">
+
+        Text
+        <br>
+        <span class="info">
+            {{ item.info.vars.data.intitule | default('') }}
+            {{ form_widget(item.info) }}
+        </span>
+        <br>
+        <br>
+        <button type="button" class="delete-contenu btn btn-primary btn-sm">Supprimer</button>
+        <br>
+        <br>
+    </div>
+{% endmacro %}
