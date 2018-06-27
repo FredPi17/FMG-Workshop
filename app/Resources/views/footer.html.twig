@@ -1,5 +1,17 @@
-<div class="py-5 bg-dark bottom">
+<div class="py-5 bg-dark fixed-bottom">
     <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{{ path('homepage') }}" class="nav-link">Accueil</a>
+                <a href="{{ path('showArticle') }}" class="nav-link">Cours</a>
+                <a href="{{ path('thematiques') }}" class="nav-link">Thematiques</a>
+            </div>
+            <div class="col-md-4">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+            </div>
+            <div class="col-md-4">
+                <a href="">Test</a>
+            </div>
+        </div>
     </div>
 </div>

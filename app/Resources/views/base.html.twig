@@ -19,6 +19,7 @@
         <div class="row">
 
            {% block body %}
+
             {% endblock %}
 
         </div>
@@ -26,10 +27,12 @@
         {% include 'footer.html.twig' %}
         {% endblock %}
     </div>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
     {% block javascripts %}
-                <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-                <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-            {% endblock %}
+
+    {% endblock %}
 
 
     </body>
