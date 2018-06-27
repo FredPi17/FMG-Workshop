@@ -25,5 +25,12 @@ class ProfilController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/cgu", name="CGU")
+     */
+    public function showCGU(){
+        return $this->render('conditions/condition.html.twig');
+    }
+
 
 }
