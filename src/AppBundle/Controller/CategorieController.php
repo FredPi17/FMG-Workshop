@@ -12,10 +12,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class CoursController extends Controller
+class CategorieController extends Controller
 {
     /**
-     * @Route("/cours/show", name="showArticle")
+     * @Route("/categorie", name="showCategorie")
      */
     public function showArticle(){
         return $this->render('categorie/show.html.twig');
