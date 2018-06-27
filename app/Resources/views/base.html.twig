@@ -2,12 +2,35 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>WeBemy - {% block title %}{% endblock %}</title>
+        {% block stylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('') }}" />
+        <link href="{{ asset('vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
+
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+    {% include ('nav.html.twig') %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+           {% block body %}
+            {% endblock %}
+
+        </div>
+        {% block footer %}
+        {% include 'footer.html.twig' %}
+        {% endblock %}
+    </div>
+    {% block javascripts %}
+                <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+                <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+            {% endblock %}
+
+
     </body>
 </html>

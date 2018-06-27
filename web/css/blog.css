@@ -1,0 +1,12 @@
+body {
+    padding-top: 74px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 76px;
+    }
+}
+footer{
+    width: 100%;
+}
