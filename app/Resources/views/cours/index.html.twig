@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cours list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Introduction</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            <tr>
+                <td><a href="{{ path('cours_show', { 'id': cour.id }) }}">{{ cour.id }}</a></td>
+                <td>{{ cour.title }}</td>
+                <td>{{ cour.introduction }}</td>
+                <td><img src="{{ asset('uploads/cours/' ~ cour.image) }}" width="50px" height="50px"/></td>
+                <td>{{ cour.category.name }}</td>
+                <td>
+                    <a href="{{ path('cours_show', { 'id': cour.id }) }}">show</a>
+                    <a href="{{ path('cours_edit', { 'id': cour.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cours_new') }}">Créer un nouveau cours</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% import "text.html.twig" as macro_collection_contenusText %}
+{% import "sousTitre.html.twig" as macro_collection_contenusSousTitre %}
+{% import "image.html.twig" as macro_collection_contenusImage %}
+
+{% block body %}
+    <h1>Cours creation</h1>
+
+    {{ form_start(form, {'attr':{class:'form-horizontal'}}) }}
+
+        <div class="line form-group">
+            {{ form_label(form.title, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.title, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
+        </div>
+        <br>
+
+        <div class="line form-group">
+            {{ form_label(form.introduction, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.introduction, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
+        </div>
+        <br>
+
+        <div class="line form-group">
+            {{ form_label(form.imageFile, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.imageFile, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
+        </div>
+        <br>
+
+        <div class="line form-group">
+            {{ form_label(form.category, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.category, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
+        </div>
+        <br>
+
+
+        <div class="wrap-contenus">
+            {{ macro_collection_contenusText.display_collectionText(form.contenu) }}
+            {{ macro_collection_contenusSousTitre.display_collectionSousTitre(form.contenu) }}
+            {{ macro_collection_contenusImage.display_collectionImage(form.contenu) }}
+        </div>
+
+        <button type="button" class="add-sousTitre btn btn-primary btn-sm">Ajouter Sous-Titre</button>
+        <button type="button" class="add-text btn btn-primary btn-sm">Ajouter Text</button>
+        <button type="button" class="add-image btn btn-primary btn-sm">Ajouter Image</button>
+
+    <br>
+    <br>
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('cours_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
