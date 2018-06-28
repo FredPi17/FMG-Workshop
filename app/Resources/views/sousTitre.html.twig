@@ -1,0 +1,26 @@
+{% macro display_collectionSousTitre(collection) %}
+    {% import _self as macro %}
+
+    {% if collection.vars.prototype is defined %}
+        <div id='prototype-contenuSousTitre'
+             data-prototype='{{ macro.display_item_collectionSousTitre(collection.vars.prototype)|e }}'>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro display_item_collectionSousTitre(item) %}
+    <div class="un-contenu">
+
+        SousTitre
+        <br>
+        <span class="info">
+            {{ item.sousTitre.vars.data.intitule | default('') }}
+            {{ form_widget(item.sousTitre) }}
+        </span>
+        <br>
+        <br>
+        <button type="button" class="delete-contenu btn btn-primary btn-sm">Supprimer</button>
+        <br>
+        <br>
+    </div>
+{% endmacro %}

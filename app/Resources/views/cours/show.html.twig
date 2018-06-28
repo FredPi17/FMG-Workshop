@@ -1,16 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    Cours
-{% endblock %}
-
 {% block body %}
-    {% block article %}
-        <div class="col-lg-8">
-        </div>
-    {% endblock %}
+    <h1>Cours</h1>
 
-    {% block aside %}
-    {% include 'aside.html.twig' %}
-    {% endblock %}
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cours.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ cours.title }}</td>
+            </tr>
+            <tr>
+                <th>Introduction</th>
+                <td>{{ cours.introduction }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset('uploads/cours/' ~ cours.image) }}" width="50px" height="50px"/></td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ cours.category.name }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                {% for cont in cours.contenu %}
+                    <tr>
+                        <td>{{ cont.type }}</td>
+                        {% if cont.info is not null%}
+                            <td>{{ cont.info }}</td>
+                        {% elseif cont.sousTitre is not null %}
+                            <td> {{ cont.sousTitre }}</td>
+                        {% elseif cont.image is not null %}
+                            <td><img src="{{ asset('uploads/cours/contenus/' ~ cont.image) }}" width="50px" height="50px"/></td>
+                        {% endif %}
+                    </tr>
+                {% else %}
+                <tr>
+                    <td>Pas de contenu</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cours_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('cours_edit', { 'id': cours.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
 {% endblock %}
