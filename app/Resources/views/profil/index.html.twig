@@ -24,7 +24,26 @@
                     </div>
                 </div>
         </div>
+        <hr>
+        <hr>
+        <div class="col-lg-10">
+            <h4>Badges</h4>
+
+                {% for categorie in categories %}
+                    {{ categorie.name }}
+                    <br>
+                    {% for cour in app.user.cours %}
+                        {% if cour.category.name == categorie.name %}
+                            <img src="{{ asset('uploads/cours/' ~ cour.image) }}" width="80px" height="80px"/>
+                        {% endif %}
+                {% endfor %}
+                    <br>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
     </div>
+
 
 
 {% endblock %}

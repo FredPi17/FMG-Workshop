@@ -56,6 +56,30 @@ class Cours
     protected $category;
 
     /**
+     * @var Collection
+     *
+     * Many Cours have Many User.
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="cours")
+     */
+    protected $usercours;
+
+    /**
+     * @return Collection
+     */
+    public function getUsercours()
+    {
+        return $this->usercours;
+    }
+
+    /**
+     * @param Collection $usercours
+     */
+    public function setUsercours($usercours)
+    {
+        $this->usercours = $usercours;
+    }
+
+    /**
      * Get category
      *
      * @return Category
@@ -219,5 +243,6 @@ class Cours
     public function __construct()
     {
         $this->contenus = new ArrayCollection();
+        $this->usercours = new ArrayCollection();
     }
 }
