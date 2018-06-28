@@ -11,7 +11,8 @@ $(function () {
 
         $(".wrap-contenus").append(newContenu);
         indexContenus++;
-    }).on("click",".add-sousTitre", function () {
+    })
+        .on("click",".add-sousTitre", function () {
 
         var $prototype = $("#prototype-contenuSousTitre");
         var prototype = $prototype.data("prototype");
@@ -19,7 +20,8 @@ $(function () {
 
         $(".wrap-contenus").append(newContenu);
         indexContenus++;
-    }).on("click",".add-image", function () {
+    })
+        .on("click",".add-image", function () {
 
         var $prototype = $("#prototype-contenuImage");
         var prototype = $prototype.data("prototype");
@@ -27,7 +29,8 @@ $(function () {
 
         $(".wrap-contenus").append(newContenu);
         indexContenus++;
-    }).on("click", ".delete-contenu", function () {
+    })
+        .on("click", ".delete-contenu", function () {
         $(this).parent('.un-contenu').remove();
     });
 });

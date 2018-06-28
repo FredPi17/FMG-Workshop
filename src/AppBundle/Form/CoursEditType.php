@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Category;
+use AppBundle\Entity\Contenu;
 use AppBundle\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -13,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CoursType extends AbstractType
+class CoursEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -28,7 +29,8 @@ class CoursType extends AbstractType
                 'label' => "Introduction"
             ))
             ->add('imageFile', FileType::class, array(
-                'label' => "Sticker Image"
+                'label' => "Sticker Image",
+                'required' => false
             ))
             ->add('category', EntityType::class, array(
                 "class" => Category::class,
@@ -40,30 +42,14 @@ class CoursType extends AbstractType
                 }
             ))
             ->add('contenu', CollectionType::class, array(
-                'entry_type' => ContenuType::class,
-                'label' => " ",
-                'allow_add' => true,
-                'allow_delete' => true)
+                    'entry_type' => ContenuEditType::class,
+                    'allow_add' => true,
+                    'allow_delete' => true)
             );
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    public function getParent()
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Cours'
-        ));
+        return CoursType::class;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_cours';
-    }
-
-
 }

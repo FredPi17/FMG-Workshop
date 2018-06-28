@@ -67,7 +67,6 @@ class CoursController extends Controller
 
             }
 
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($cours);
             $em->flush();
@@ -106,10 +105,11 @@ class CoursController extends Controller
     public function editAction(Request $request, Cours $cours)
     {
         $deleteForm = $this->createDeleteForm($cours);
-        $editForm = $this->createForm('AppBundle\Form\CoursType', $cours);
+        $editForm = $this->createForm('AppBundle\Form\CoursEditType', $cours);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            if($cours->getImageFile() != null){
             $file = $cours->getImageFile();
             $filename = md5(uniqid()) . '.' . $file->guessExtension();
             $file->move(
@@ -117,11 +117,13 @@ class CoursController extends Controller
                 $filename
             );
             $cours->setImage($filename);
+            }
 
 
             $images = $cours->getContenu();
             foreach ($images as $image){
-                if($image->getType() == "Image"){
+
+                if($image->getType() == "Image" && $image->getImageFile() != null){
                     $imagef = $image->getImageFile();
                     $filename = md5(uniqid()) . '.' . $imagef->guessExtension();
                     $imagef->move(
@@ -130,17 +132,16 @@ class CoursController extends Controller
                     );
                     $image->setImage($filename);
                 }
-
             }
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('cours_edit', array('id' => $cours->getId()));
+            return $this->redirectToRoute('cours_show', array('id' => $cours->getId()));
         }
 
         return $this->render('cours/edit.html.twig', array(
             'cours' => $cours,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

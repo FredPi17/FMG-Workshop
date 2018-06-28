@@ -1,9 +1,6 @@
 {% macro display_collectionSousTitre(collection) %}
     {% import _self as macro %}
 
-    {% for item in collection %}
-        {{ macro.display_item_collectionSousTitre(item) }}
-    {% endfor %}
     {% if collection.vars.prototype is defined %}
         <div id='prototype-contenuSousTitre'
              data-prototype='{{ macro.display_item_collectionSousTitre(collection.vars.prototype)|e }}'>

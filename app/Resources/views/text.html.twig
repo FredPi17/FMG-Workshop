@@ -1,9 +1,7 @@
 {% macro display_collectionText(collection) %}
     {% import _self as macro %}
 
-    {% for item in collection %}
-        {{ macro.display_item_collectionText(item) }}
-    {% endfor %}
+
     {% if collection.vars.prototype is defined %}
         <div id='prototype-contenuText'
              data-prototype='{{ macro.display_item_collectionText(collection.vars.prototype)|e }}'>

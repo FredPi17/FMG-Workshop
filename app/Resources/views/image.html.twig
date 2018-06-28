@@ -1,9 +1,6 @@
 {% macro display_collectionImage(collection) %}
     {% import _self as macro %}
 
-    {% for item in collection %}
-        {{ macro.display_item_collectionImage(item) }}
-    {% endfor %}
     {% if collection.vars.prototype is defined %}
         <div id='prototype-contenuImage'
              data-prototype='{{ macro.display_item_collectionImage(collection.vars.prototype)|e }}'>
