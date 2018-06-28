@@ -4,12 +4,13 @@
     Catégories
 {% endblock %}
   {% block stylesheets %}
+
       <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+
   {% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-
   <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
   </span>
@@ -18,7 +19,7 @@
         <div class="module-section clearfix  mix marketing planning">
 
             <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
-            <ul id="content">
+            <ul class="content">
                 <h1>Web</h1>
 
                 <li class="card effect1">
@@ -67,7 +68,7 @@
 
         <div class="module-section clearfix">
             <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
-            <ul id="content">
+            <ul class="content">
 <h1>LOL</h1>
                 <li class="card effect1">
                     <div class="inside-top">
@@ -118,7 +119,6 @@
         <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
     </span>
-    </div>
 
 {% endblock %}
 

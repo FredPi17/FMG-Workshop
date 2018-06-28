@@ -123,13 +123,13 @@ button:focus {outline:0 !important;}
 
 }
 
-ul{
+.content{
     width:600em;
     list-style-type:none;
     /*padding:50px 0 50px 0;*/
 }
 
-#content{
+.content{
     position:relative;
 }
 
