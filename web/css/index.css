@@ -34,7 +34,6 @@ header.masthead{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -43,12 +42,15 @@ header.masthead{
 .btn-outline{
     color: #fff;
     border: 1px solid;
-    border-color: #fff;
+    border-color: #fff !important;
 }
 
 .feature{
     width: 50%;
     height: 150px;
+}
+a.btn-outline:hover{
+    color: black;
 }
 
 section{
