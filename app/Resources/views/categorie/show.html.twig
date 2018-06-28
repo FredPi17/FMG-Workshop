@@ -5,30 +5,10 @@
 {% endblock %}
   {% block stylesheets %}
       <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
-      <link href="{{ asset('css/owl.carousel.css') }} " rel="stylesheet">
-      <link href="{{ asset('css/owl.theme.css') }} " rel="stylesheet">
   {% endblock %}
 
 {% block body %}
     <div id="wrapper">
-        <!-- Portfolio Controller/Buttons -->
-        <div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
-            <a class="filter active btn btn-common" data-filter="all">
-                Parcours
-            </a>
-            <a class="filter btn btn-common" data-filter=".branding">
-                Education
-            </a>
-            <a class="filter btn btn-common" data-filter=".marketing">
-                Stage
-            </a>
-            <a class="filter btn btn-common" data-filter=".planning">
-                Hackathon
-            </a>
-            <a class="filter btn btn-common" data-filter=".research">
-                Projets
-            </a>
-        </div>
 
   <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
@@ -150,8 +130,6 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script  src="{{ asset('js/carousel.js') }}"></script>
-    <script  src="{{ asset('js/owl.carousel.js') }}"></script>
 
 
 {% endblock %}
