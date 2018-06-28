@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{# categories \AppBundle\Entity\Category #}
+
+
 {% block title %}
     Catégories
 {% endblock %}
@@ -11,6 +14,7 @@
   {% endblock %}
 
 {% block body %}
+    {% for category in categories %}
   <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
   </span>
@@ -20,7 +24,7 @@
 
             <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
             <ul class="content">
-                <h1>Web</h1>
+                <h1>{{ category.Name }}</h1>
 
                 <li class="card effect1">
                     <div class="inside-top">
@@ -60,65 +64,7 @@
         <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
   </span>
-
-
-        <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
-    <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
-  </span>
-
-        <div class="module-section clearfix">
-            <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
-            <ul class="content">
-<h1>LOL</h1>
-                <li class="card effect1">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }} " height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="inside-top">
-                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
-                    </div>
-                </li>
-            </ul>
-
-
-
-        </div><!--end of module-section-->
-
-        <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
-    <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
-    </span>
+        {% endfor %}
 
 {% endblock %}
 
