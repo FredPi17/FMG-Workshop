@@ -17,7 +17,15 @@ class CategorieController extends Controller
     /**
      * @Route("/categorie", name="showCategorie")
      */
-    public function showArticle(){
-        return $this->render('categorie/show.html.twig');
+    public function showCategories(){
+        $em = $this->getDoctrine()->getManager();
+
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
+        $cours = $em->getRepository('AppBundle:Cours')->findAll();
+
+        return $this->render('categorie/show.html.twig', array(
+            'categories' => $categories,
+            'cours' => $categories,
+        ));
     }
 }
