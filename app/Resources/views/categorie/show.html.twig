@@ -1,1 +1,157 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}
+    Catégories
+{% endblock %}
+  {% block stylesheets %}
+      <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/owl.carousel.css') }} " rel="stylesheet">
+      <link href="{{ asset('css/owl.theme.css') }} " rel="stylesheet">
+  {% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <!-- Portfolio Controller/Buttons -->
+        <div class="controls text-center wow fadeInUpQuick" data-wow-delay=".6s">
+            <a class="filter active btn btn-common" data-filter="all">
+                Parcours
+            </a>
+            <a class="filter btn btn-common" data-filter=".branding">
+                Education
+            </a>
+            <a class="filter btn btn-common" data-filter=".marketing">
+                Stage
+            </a>
+            <a class="filter btn btn-common" data-filter=".planning">
+                Hackathon
+            </a>
+            <a class="filter btn btn-common" data-filter=".research">
+                Projets
+            </a>
+        </div>
+
+  <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
+    <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
+  </span>
+
+
+        <div class="module-section clearfix  mix marketing planning">
+
+            <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+            <ul id="content">
+                <h1>Web</h1>
+
+                <li class="card effect1">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/web_html_min.png') }}">
+                        <h5 class="text-center">Créer vos premiers sites internet avec HTML/CSS</h5>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/web_php_min.png') }}">
+                        <h5 class="text-center">Utiliser des données dynamiques grâce à PHP et MySQL</h5>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/web_min.png') }}">
+                        <h5 class="text-center">Faites de belles annimations avec JavaScript !</h5>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/web_min.png') }}">
+                        <h5 class="text-center">Gagner du temps grâce à Symfony !</h5>
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/web_min.png') }}">
+                        <h5 class="text-center">Structurer vos sites avec Angular Js!</h5>
+                    </div>
+                </li>
+            </ul>
+
+
+
+        </div><!--end of module-section-->
+        <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
+    <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
+  </span>
+
+
+        <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
+    <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
+  </span>
+
+        <div class="module-section clearfix">
+            <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+            <ul id="content">
+<h1>LOL</h1>
+                <li class="card effect1">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }} " height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+                <li class="card">
+                    <div class="inside-top">
+                        <img src="{{ asset('img/code.png') }}" height="270px" width="480px">
+                    </div>
+                </li>
+            </ul>
+
+
+
+        </div><!--end of module-section-->
+
+        <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
+    <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
+    </span>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src='https://use.fontawesome.com/76758773b6.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script  src="{{ asset('js/carousel.js') }}"></script>
+    <script  src="{{ asset('js/owl.carousel.js') }}"></script>
+
+
+{% endblock %}
