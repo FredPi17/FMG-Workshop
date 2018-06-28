@@ -10,3 +10,6 @@ body {
 footer{
     width: 100%;
 }
+.bg-dark {
+    background-color: #326FAB !important;
+}
