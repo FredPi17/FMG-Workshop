@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cf4e099e-df01-401e-b59d-70f2b9310712" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Resources/views/categorie/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/categorie/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/CategorieController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/CategorieController.php" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -122,8 +121,8 @@
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/categorie/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+            <state relative-caret-position="558">
+              <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -330,19 +329,6 @@
               <item name="FMG-Workshop" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="FMG-Workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FMG-Workshop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="FMG-Workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FMG-Workshop" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="uploads" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="cours" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -389,12 +375,12 @@
       <workItem from="1530092396700" duration="3311000" />
       <workItem from="1530100255204" duration="5545000" />
       <workItem from="1530170641152" duration="1529000" />
-      <workItem from="1530188373416" duration="3016000" />
+      <workItem from="1530188373416" duration="3254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21401000" />
+    <option name="totallyTimeSpent" value="21639000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -777,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/categorie/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state relative-caret-position="558">
+          <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
           <folding />
         </state>
       </provider>

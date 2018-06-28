@@ -16,35 +16,37 @@
 {% block body %}
     {% for category in categories %}
         {% if category.cours | length != 0  %}
-  <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
+            <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-left fa-chevron-left-extra" aria-hidden="true"></b>
   </span>
 
 
-        <div class="module-section clearfix  mix marketing planning">
+            <div class="module-section clearfix  mix marketing planning">
 
-            <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
-            <ul class="content">
-                <h1>{{ category.Name }}</h1>
+                <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+                <ul class="content">
+                    <h1>{{ category.Name }}</h1>
 
-                {% for cours in category.cours %}
-                <li class="card effect1">
-                    <div class="inside-top">
-                        <img src="{{ asset('uploads/cours/' ~ cours.image) }}"  height="270px" width="480px">
-                        <h5 class="text-center">{{ cours.Title }}</h5>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
+                    {% for cours in category.cours %}
+                        <li class="card effect1">
+                            <a href="{{ path('cours_show', { 'id': cours.id }) }}">
+                                <div class="inside-top">
+                                    <img src="{{ asset('uploads/cours/' ~ cours.image) }}"  height="270px" width="480px">
+                                    <h5 class="text-center">{{ cours.Title }}</h5>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
 
 
 
-        </div><!--end of module-section-->
-        <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
+            </div><!--end of module-section-->
+            <span id="controlR" class="right-controls" role="button" aria-label="See Previous Modules">
     <b class="fa fa-chevron-right fa-chevron-right-extra" aria-hidden="true"></b>
   </span>
-            {% endif %}
-        {% endfor %}
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}
 
