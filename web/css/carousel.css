@@ -36,12 +36,12 @@ button:focus {outline:0 !important;}
     opacity:1;
     cursor:pointer;
     text-align:center;
-    webkit justify content: center;
+    webkit-justify-content: center;
     justify-content:center;
-    display: webkit box;
-    display: webkit flex;
-    display: moz box;
-    display:ms flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display:-ms-flexbox;
     display:flex;
     color:#fff;
 
@@ -81,12 +81,12 @@ button:focus {outline:0 !important;}
     opacity:1;
     cursor:pointer;
     text-align:center;
-    webkit justify content: center;
+    webkit-justify-content: center;
     justify-content:center;
-    display: webkit box;
-    display: webkit flex;
-    display: moz box;
-    display:ms flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display:flex;
     color:#fff;
 }
