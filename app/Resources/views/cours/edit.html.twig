@@ -5,104 +5,113 @@
 {% import "image.html.twig" as macro_collection_contenusImage %}
 
 {% block body %}
-    <h1>Cours edit</h1>
+    <div class="container col-lg-8 offset-2">
+        <h1>Modifier cours</h1>
 
-    {{ form_start(form, {'attr':{class:'form-horizontal'}}) }}
-    {{ form_errors(form) }}
-    {{ form_row(form._token) }}
-    <div class="line form-group">
-        {{ form_label(form.title, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.title, {attr: {class:'form-control', autocomplete:'off' }}) }}
+        {{ form_start(form, {'attr':{class:'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+        {{ form_row(form._token) }}
+        <div class="line form-group">
+            {{ form_label(form.title, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-lg-12">
+                {{ form_widget(form.title, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
         </div>
-    </div>
-    <br>
-
-    <div class="line form-group">
-        {{ form_label(form.introduction, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.introduction, {attr: {class:'form-control', autocomplete:'off' }}) }}
-        </div>
-    </div>
-    <br>
-
-    <div class="line form-group">
-        {{ form_label(form.imageFile, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
         <br>
-        <img src="{{ asset('uploads/cours/' ~ cours.image) }}" width="50px" height="50px"/>
-        <div class="col-sm-4">
-            {{ form_widget(form.imageFile, {attr: {class:'form-control', autocomplete:'off' }}) }}
-        </div>
-    </div>
-    <br>
 
-    <div class="line form-group">
-        {{ form_label(form.category, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.category, {attr: {class:'form-control', autocomplete:'off' }}) }}
-        </div>
-    </div>
-    <br>
-
-    <div class="wrap-contenus">
-        {% for cont in form.contenu %}
-            <div class="un-contenu">
-            {% if cont.info.vars.value != null %}
-            <div class="line form-group">
-                {{ form_label(cont.info, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
-                <br>
-                <div class="col-sm-4">
-                    {{ form_widget(cont.info, {attr: {class:'form-control', autocomplete:'off' }}) }}
-                </div>
+        <div class="line form-group">
+            {{ form_label(form.introduction, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-lg-12">
+                {{ form_widget(form.introduction, {attr: {class:'form-control', autocomplete:'off' }}) }}
             </div>
+        </div>
+        <br>
+
+        <div class="line form-group">
+            {{ form_label(form.imageFile, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
             <br>
-            {% elseif cont.sousTitre.vars.value != null %}
-                <div class="line form-group">
-                    {{ form_label(cont.sousTitre, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
-                    <br>
-                    <div class="col-sm-4">
-                        {{ form_widget(cont.sousTitre, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            <img src="{{ asset('uploads/cours/' ~ cours.image) }}" width="50px" height="50px"/>
+            <div class="col-lg-12">
+                {{ form_widget(form.imageFile, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
+        </div>
+        <br>
+
+        <div class="line form-group">
+            {{ form_label(form.category, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
+            <div class="col-lg-12">
+                {{ form_widget(form.category, {attr: {class:'form-control', autocomplete:'off' }}) }}
+            </div>
+        </div>
+        <br>
+
+        <div class="wrap-contenus">
+            {% for cont in form.contenu %}
+                <div class="un-contenu">
+                    {% if cont.info.vars.value != null %}
+                        <div class="line form-group">
+                            {{ form_label(cont.info, null, {'label_attr': {class:'control-label'}}) }}
+                            <br>
+                                {{ form_widget(cont.info, {attr: {class:'form-control', autocomplete:'off' }}) }}
+                        </div>
+                        <br>
+                    {% elseif cont.sousTitre.vars.value != null %}
+                        <div class="line form-group">
+                            {{ form_label(cont.sousTitre, null, {'label_attr': {class:'form-control'}}) }}
+                            <br>
+                            <div class="col-sm-4">
+                                {{ form_widget(cont.sousTitre, {attr: {class:'form-control', autocomplete:'off' }}) }}
+                            </div>
+                        </div>
+                        <br>
+                    {% elseif cont.image.vars.value != null %}
+                        <div class="line form-group">
+                            {{ form_label(cont.imageFile, null, {'label_attr': {class:'control-label'}}) }}
+                            <br>
+                            <img src="{{ asset('uploads/cours/contenus/' ~ cont.image.vars.value) }}" width="50px" height="50px"/>
+
+                                {{ form_widget(cont.imageFile, {attr: {class:'form-control', autocomplete:'off' }}) }}
+                                {{ form_widget(cont.image, {attr: {class:'form-control', autocomplete:'off', type:'hidden'}}) }}
+                        </div>
+                        <br>
+                    {% endif %}
+                    <div class="text-center">
+                    <button type="button" class="delete-contenu btn btn-primary btn-md">Supprimer</button>
                     </div>
                 </div>
                 <br>
-            {% elseif cont.image.vars.value != null %}
-                <div class="line form-group">
-                    {{ form_label(cont.imageFile, null, {'label_attr': {class:'col-sm-2 control-label'}}) }}
-                    <br>
-                    <img src="{{ asset('uploads/cours/contenus/' ~ cont.image.vars.value) }}" width="50px" height="50px"/>
-                    <div class="col-sm-4">
-                        {{ form_widget(cont.imageFile, {attr: {class:'form-control', autocomplete:'off' }}) }}
-                        {{ form_widget(cont.image, {attr: {class:'form-control', autocomplete:'off', type:'hidden'}}) }}
-                    </div>
-                </div>
-                <br>
-            {% endif %}
-            <button type="button" class="delete-contenu btn btn-primary btn-sm">Supprimer</button>
-            </div>
+            {% endfor %}
+            {{ macro_collection_contenusText.display_collectionText(form.contenu) }}
+            {{ macro_collection_contenusSousTitre.display_collectionSousTitre(form.contenu) }}
+            {{ macro_collection_contenusImage.display_collectionImage(form.contenu) }}
+        </div>
+        <div class="text-center">
+
+            <button type="button" class="add-sousTitre btn btn-primary btn-lg">Ajouter Sous-Titre</button>
+            <button type="button" class="add-text btn btn-primary btn-lg">Ajouter Text</button>
+            <button type="button" class="add-image btn btn-primary btn-lg">Ajouter Image</button>
             <br>
-        {% endfor %}
-        {{ macro_collection_contenusText.display_collectionText(form.contenu) }}
-        {{ macro_collection_contenusSousTitre.display_collectionSousTitre(form.contenu) }}
-        {{ macro_collection_contenusImage.display_collectionImage(form.contenu) }}
+            <br>
+            <input type="submit" value="Save" />
+            {{ form_end(form, {'render_rest':false}) }}
+
+            <ul>
+                <li>
+                    <a href="{{ path('cours_index') }}">Retour à la liste des cours</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete" class="btn-secondary">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+        </div>
+
+    </div>
     </div>
 
-    <button type="button" class="add-sousTitre btn btn-primary btn-sm">Ajouter Sous-Titre</button>
-    <button type="button" class="add-text btn btn-primary btn-sm">Ajouter Text</button>
-    <button type="button" class="add-image btn btn-primary btn-sm">Ajouter Image</button>
 
-    <br>
-    <br>
-    <input type="submit" value="Save" />
-    {{ form_end(form, {'render_rest':false}) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('cours_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+
 {% endblock %}
