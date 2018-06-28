@@ -21,6 +21,13 @@
                             <a class="nav-link" href="{{ path('profil') }}">{{ app.user.username }}</a>
                         </button>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            <button class="btn btn-secondary">
+                                <i class="fa fa-sign-out" style="font-size:36px"></i>
+                            </button>
+                        </a>
+                    </li>
                 {% else %}
                     <li class="nav-item">
                         <button class="btn btn-secondary">

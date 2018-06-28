@@ -3,5 +3,16 @@
 {% block fos_user_content %}
 <div class="col-md-10 offset-1">
     {{ include('@FOSUser/Security/login_content.html.twig') }}
+
+    <div class="text-center">
+        <button class="btn btn-secondary"><a href="{{ path('fos_user_registration_register') }}" class="a">Pas encore de compte ?</a></button>
+    </div>
 </div>
 {% endblock fos_user_content %}
+{% block stylesheets %}
+<style>
+    .a{
+        color: white;
+    }
+</style>
+{% endblock %}

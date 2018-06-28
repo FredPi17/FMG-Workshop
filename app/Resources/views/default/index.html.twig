@@ -20,7 +20,11 @@ Accueil
                                 <h3 class="mb-5">
                                     Nos cours vous permettront de connaitre les bases des technologies de la toile.
                                 </h3>
+                                {% if is_granted('ROLE_USER') %}
+                                <a href="{{ path('showCategorie') }}" class="btn btn-outline btn-xl js-scroll-trigger">Commencer ici</a>
+                                {% else %}
                                 <a href="{{ path('fos_user_security_login') }}" class="btn btn-outline btn-xl js-scroll-trigger">Commencer ici</a>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col-lg-6 my-auto">

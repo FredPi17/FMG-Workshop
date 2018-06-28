@@ -1,17 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cours list</h1>
+    <div class="col-lg-8 offset-2">
 
-    <table>
+
+    <h1>Liste des cours</h1>
+
+    <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Introduction</th>
-                <th>Image</th>
-                <th>Category</th>
-                <th>Actions</th>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Introduction</th>
+                <th scope="col">Image</th>
+                <th scope="col">Category</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +26,8 @@
                 <td><img src="{{ asset('uploads/cours/' ~ cour.image) }}" width="50px" height="50px"/></td>
                 <td>{{ cour.category.name }}</td>
                 <td>
-                    <a href="{{ path('cours_show', { 'id': cour.id }) }}">show</a>
-                    <a href="{{ path('cours_edit', { 'id': cour.id }) }}">edit</a>
+                    <a href="{{ path('cours_show', { 'id': cour.id }) }}">Afficher</a>
+                    <a href="{{ path('cours_edit', { 'id': cour.id }) }}">Modifier</a>
                 </td>
             </tr>
         {% endfor %}
@@ -36,4 +39,5 @@
             <a href="{{ path('cours_new') }}">Créer un nouveau cours</a>
         </li>
     </ul>
+    </div>
 {% endblock %}

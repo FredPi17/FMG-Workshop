@@ -18,11 +18,4 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
-
-    /**
-     * @Route("/themes", name="thematiques")
-     */
-    public function themes(){
-        return $this->render('default/thematiques.html.twig');
-    }
 }
