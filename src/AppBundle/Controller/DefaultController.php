@@ -25,13 +25,4 @@ class DefaultController extends Controller
     public function themes(){
         return $this->render('default/thematiques.html.twig');
     }
-
-    /**
-     * @Route("/connexion", name="connexion")
-     */
-    public function connexion(){
-        return $this->render('connexion/connexion.html.twig');
-    }
-
-
 }
