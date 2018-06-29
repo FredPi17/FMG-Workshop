@@ -19,8 +19,11 @@ class ProfilController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
         // replace this example code with whatever you need
         return $this->render('profil/index.html.twig', [
+            'categories' => $categories,
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
