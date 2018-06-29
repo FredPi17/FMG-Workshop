@@ -14,6 +14,16 @@
   {% endblock %}
 
 {% block body %}
+    <div class="container">
+
+        <div class="row">
+
+            <input class="form-control" id="myInput" type="text" placeholder="Rechercher..">
+
+        </div>
+
+    </div>
+
     {% for category in categories %}
         {% if category.cours | length != 0  %}
             <span id="controlL" class="left-controls" role="button" aria-label="See Previous Modules">
@@ -22,23 +32,24 @@
 
 
             <div class="module-section clearfix  mix marketing planning">
+                <div id="myDIV">
 
-                <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
-                <ul class="content">
-                    <h1>{{ category.Name }}</h1>
+                    <!-- <button class="btn arrow-guides fa-chevron-left"></button> -->
+                    <ul class="content">
+                        <h1>{{ category.Name }}</h1>
 
-                    {% for cours in category.cours %}
-                        <li class="card effect1">
+                        {% for cours in category.cours %}
                             <a href="{{ path('cours_show', { 'id': cours.id }) }}">
-                                <div class="inside-top">
-                                    <img src="{{ asset('uploads/cours/' ~ cours.image) }}"  height="270px" width="480px">
-                                    <h5 class="text-center">{{ cours.Title }}</h5>
-                                </div>
+                                <li class="card effect1">
+                                    <div class="inside-top">
+                                        <img src="{{ asset('uploads/cours/' ~ cours.image) }}"  height="270px" width="480px">
+                                        <h5 class="text-center">{{ cours.Title }}</h5>
+                                    </div>
+                                </li>
                             </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-
+                        {% endfor %}
+                    </ul>
+                </div>
 
 
             </div><!--end of module-section-->
@@ -57,7 +68,16 @@
 
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myDIV *").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
 
 {% endblock %}
