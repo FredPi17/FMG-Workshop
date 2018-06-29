@@ -1,107 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <br>
-                <h1 class="mt-4">Cours</h1>
-                <p>{{ cours.introduction }}</p>
-                {% for cont in cours.contenu %}
-                    <div id="{{ cont.id }}">
-                        <h2>{{ cont.SousTitre }}</h2>
-                        <p>{{ cont.info }}</p>
-                        {% if cont.image != 0 %}
-                            <img src="{{ asset('uploads/cours/' ~ cont.image) }}">
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
+<div class="container">
+        <div class="col-lg-8">
+            <br>
+            <h1 class="mt-4">Cours</h1>
+            <p>{{ cours.introduction }}</p>
+            {% for cont in cours.contenu %}
+                <div id="{{ cont.id }}">
+                    <h2>{{ cont.SousTitre }}</h2>
+                    <p>{{ cont.info }}</p>
+                    {% if cont.image != 0 %}
+                        <img src="{{ asset('uploads/cours/' ~ cont.image) }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card my-4">
-            <br> 
-            <h5 class="card-header">Progression</h5>
-            <div class="card-body">
-                <div class="input-group">
+        <div class="col-lg-4">
+            <div class="card my-4">
+                <br>
+                <h5 class="card-header">Progression</h5>
+                <div class="card-body">
+                </div>
+            </div>
 
+            <!-- Side Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Chapitre</h5>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for cont in cours.contenu %}
+                            {% if cont.SousTitre != null %}
+                            <a href="#{{ cont.id }}">
+                                <li class="list-group-item">{{ cont.SousTitre }}</li>
+                            </a>
+                        {% endif %}
+                        {% endfor%}
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Side Widget -->
-        <div class="card my-4">
-            <h5 class="card-header">Chapitre</h5>
-            <div class="card-body">
-                <ul class="list-group">
-                    {% for cont in cours.contenu %}
-                        {% if cont.SousTitre != null %}
-                        <a href="#{{ cont.id }}">
-                            <li class="list-group-item">{{ cont.SousTitre }}</li>
-                        </a>
-                    {% endif %}
-                    {% endfor%}
-                </ul>
-            </div>
-        </div>
     </div>
-
-
-    {#<table>#}
-    {#<tbody>#}
-    {#<tr>#}
-    {#<th>Id</th>#}
-    {#<td>{{ cours.id }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-    {#<th>Title</th>#}
-    {#<td>{{ cours.title }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-    {#<th>Introduction</th>#}
-    {#<td>{{ cours.introduction }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-    {#<th>Image</th>#}
-    {#<td><img src="{{ asset('uploads/cours/' ~ cours.image) }}" width="50px" height="50px"/></td>#}
-    {#</tr>#}
-    {#<tr>#}
-    {#<th>Category</th>#}
-    {#<td>{{ cours.category.name }}</td>#}
-    {#</tr>#}
-    {#<tr>#}
-    {#<th>Contenu</th>#}
-    {#{% for cont in cours.contenu %}#}
-    {#<tr>#}
-    {#<td>{{ cont.type }}</td>#}
-    {#{% if cont.info is not null%}#}
-    {#<td>{{ cont.info }}</td>#}
-    {#{% elseif cont.sousTitre is not null %}#}
-    {#<td> {{ cont.sousTitre }}</td>#}
-    {#{% elseif cont.image is not null %}#}
-    {#<td><img src="{{ asset('uploads/cours/contenus/' ~ cont.image) }}" width="50px" height="50px"/></td>#}
-    {#{% endif %}#}
-    {#</tr>#}
-    {#{% else %}#}
-    {#<tr>#}
-    {#<td>Pas de contenu</td>#}
-    {#</tr>#}
-    {#{% endfor %}#}
-    {#</tbody>#}
-    {#</table>#}
-
-    {#<ul>#}
-    {#<li>#}
-    {#<a href="{{ path('cours_index') }}">Back to the list</a>#}
-    {#</li>#}
-    {#<li>#}
-    {#<a href="{{ path('cours_edit', { 'id': cours.id }) }}">Edit</a>#}
-    {#</li>#}
-    {#<li>#}
-    {#{{ form_start(delete_form) }}#}
-    {#<input type="submit" value="Delete">#}
-    {#{{ form_end(delete_form) }}#}
-    {#</li>#}
-    {#</ul>#}
 {% endblock %}
