@@ -17,14 +17,10 @@
 
     {% include ('nav.html.twig') %}
 
-
-        <div class="row">
-
            {% block body %}
             {% endblock %}
 
-        </div>
-        {% block footer %}
+    {% block footer %}
         {% include 'footer.html.twig' %}
         {% endblock %}
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>

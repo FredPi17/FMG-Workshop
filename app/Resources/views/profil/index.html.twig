@@ -4,16 +4,16 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2">
-                <div class="span3 well">
-                    <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
-                    <h3>{{ app.user.username }}</h3>
+    {% if is_granted('ROLE_USER') %}
+        <div class="container content">
+            <div class="row">
+                <div class="col-md col-lg col-sm offset-lg-1">
+                    <div class="span3 well">
+                        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+                        <h3>{{ app.user.username }}</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-10">
-                <div class="col-md-6">
+                <div class="col-lg col-md col-sm">
                     <div class="form-group">
                         <label for="nom">Nom d'utilisateur</label>
                         <input type="text" class="form-control" value="{{ app.user.username }}">
@@ -25,20 +25,29 @@
                     </div>
                 </div>
             </div>
-        </div>
-        {% if is_granted('ROLE_USER') %}
-        <div class="row">
-            <div class="col-lg-2 form-group">
-                <button class="btn btn-secondary form-control" style="margin-bottom: 5px;"><a href="{{ path('cours_new') }}" class="a">Ajouter cours</a></button>
-                <br>
-                <button class="btn btn-secondary form-control"><a href="{{ path('cours_index') }}" class="a" >Liste des cours</a></button>
-            </div>
-        </div>
-        {% endif %}
+            <hr>
 
-        <hr>
-        <div class="col-lg-10">
-            <h4 class="text-center">Badges</h4>
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_CREATOR') %}
+                <div class="row ">
+                    <div class="col-sm col-md col-lg">
+                        <h4 class="text-center">Vous pouvez créer</h4>
+                        <br>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm col-md col-lg form-group">
+                        <button class="btn btn-secondary form-control" style="margin-bottom: 5px;"><a href="{{ path('cours_new') }}" class="a">Ajouter cours</a></button>
+                    </div>
+                    <div class="col-sm col-md col-lg form-group">
+                        <button class="btn btn-secondary form-control"><a href="{{ path('cours_index') }}" class="a" >Liste des cours</a></button>
+                    </div>
+                </div>
+            {% endif %}
+
+            <hr>
+            <div class="col-lg-10 offset-1">
+                <h4 class="text-center">Vos badges</h4>
 
                 {% for categorie in categories %}
                     {{ categorie.name }}
@@ -47,17 +56,38 @@
                         {% if cour.category.name == categorie.name %}
                             <img src="{{ asset('uploads/cours/' ~ cour.image) }}" width="80px" height="80px"/>
                         {% endif %}
-                {% endfor %}
+                    {% endfor %}
                     <br>
-            {% endfor %}
-        </div>
-        <br>
-        <br>
-        <div class="text-center">
-            <button class="btn btn-login"><a href="{{ path('fos_user_security_logout') }}" class="a">Se déconnecter</a> </button>
-        </div>
-    </div>
+                {% endfor %}
+            </div>
+            <hr>
 
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm col-md col-lg">
+                    <div class="text-center">
+                        <button class="btn btn-secondary"><a href="{{ path('fos_user_security_logout') }}" class="a">Se déconnecter</a> </button>
+                    </div>
+                </div>
+                <div class="col-sm col-md col-lg">
+                    <div class="text-center">
+                        <button class="btn btn-secondary"><a href="{{ path('CGU') }}" class="a">Lire les CGU</a> </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    {% else %}
+        <div class="container body">
+            <div class="text-center">
+                <h2>Vous n'êtes pas autorisé à accéder à cette page</h2>
+                <h4 class="text-muted">Veuillez vous connecter</h4>
+                <button class="btn btn-secondary margin"><a class="a" href="{{ path('fos_user_security_login') }}">Me connecter</a></button>
+            </div>
+        </div>
+    {% endif %}
 
 
 {% endblock %}
@@ -66,6 +96,17 @@
     <style>
         .a{
             color:white;
+        }
+        .margin{
+            margin-bottom: 10px;
+        }
+        .body{
+            height: -webkit-fill-available;
+            margin-top: 20%;
+        }
+        .content{
+            height: -webkit-fill-available;
+            margin-top: 10px;
         }
     </style>
 

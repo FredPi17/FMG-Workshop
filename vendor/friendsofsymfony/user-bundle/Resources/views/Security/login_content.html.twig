@@ -1,6 +1,15 @@
 {% block stylesheets %}
 <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+    <style>
+        .panel-body{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: auto;
+            width: auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
 
 {% endblock %}
 {% trans_default_domain 'FOSUserBundle' %}
@@ -36,4 +45,3 @@
                 </div>
             </div>
         </div>
-    </div>

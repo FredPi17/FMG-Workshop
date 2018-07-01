@@ -56,3 +56,7 @@ a.btn-outline:hover{
 section{
     margin-top: 15px;
 }
+.container-fluid{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}

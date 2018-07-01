@@ -1,49 +1,76 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}
+    Cours
+{% endblock %}
 {% block body %}
     <div class="container">
+        {% if is_granted('ROLE_USER') %}
         <div class="row">
-        <div class="col-md-8">
-            <br>
-            <h1 class="mt-4">Cours</h1>
-            <p>{{ cours.introduction }}</p>
-            {% for cont in cours.contenu %}
-                <div id="{{ cont.id }}">
-                    <h2>{{ cont.SousTitre }}</h2>
-                    <p>{{ cont.info }}</p>
-                    {% if cont.image != 0 %}
-                        <img src="{{ asset('uploads/cours/' ~ cont.image) }}">
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="col-md-4">
-            <div class="card my-4">
+            <div class="col-md-8">
                 <br>
-                <h5 class="card-header">Progression</h5>
-                <div class="card-body">
-                    <div class="input-group">
+                <h1 class="mt-4">Cours</h1>
+                <p>{{ cours.introduction }}</p>
+                {% for cont in cours.contenu %}
+                    <div id="{{ cont.id }}">
+                        <h2>{{ cont.SousTitre }}</h2>
+                        <p>{{ cont.info }}</p>
+                        {% if cont.image != 0 %}
+                            <img src="{{ asset('uploads/cours/' ~ cont.image) }}">
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <div class="card my-4">
+                    <br>
+                    <h5 class="card-header">Progression</h5>
+                    <div class="card-body">
+                        <div class="input-group">
 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">Chapitre(s)</h5>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            {% for cont in cours.contenu %}
+                                {% if cont.SousTitre != null %}
+                                    <a href="#{{ cont.id }}">
+                                        <li class="list-group-item">{{ cont.SousTitre }}</li>
+                                    </a>
+                                {% endif %}
+                            {% endfor%}
+                        </ul>
                     </div>
                 </div>
             </div>
-
-            <!-- Side Widget -->
-            <div class="card my-4">
-                <h5 class="card-header">Chapitre(s)</h5>
-                <div class="card-body">
-                    <ul class="list-group">
-                        {% for cont in cours.contenu %}
-                            {% if cont.SousTitre != null %}
-                            <a href="#{{ cont.id }}">
-                                <li class="list-group-item">{{ cont.SousTitre }}</li>
-                            </a>
-                        {% endif %}
-                        {% endfor%}
-                    </ul>
-                </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-md-8 offset-2 text-center">
+                <h2>Vous n'êtes pas autorisé à accéder à cette page</h2>
+                <div class="text-muted">Veuillez vous connecter</div>
+                <br>
+                <button class="btn btn-secondary margin"><a class="a"href="{{ path('fos_user_security_login') }}">Me connecter</a></button>
+                <br>
             </div>
         </div>
+        {% endif %}
     </div>
-    </div>
+{% endblock %}
+{% block stylesheets %}
+    <style>
+        .a{
+            color: white;
+        }
+        .margin{
+            margin-bottom: 10px;
+        }
+        .list-group-item{
+            color: #000;
+        }
+    </style>
 {% endblock %}
